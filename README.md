@@ -8,4 +8,11 @@ The components required for this code are as follows:
 * [Adafruit Flora Wearable Bluefruit LE Module](http://www.adafruit.com/product/2487)
 * [Adafruit Flora Wearable electronic platform:Arduino Compatible](http://www.adafruit.com/product/659)
 
+Requires Libraries installed
+* Adafruit_NeoPixel
+* Adafruit_Sensor
+* Adafruit_LSM9DSO
+* Adafruit_BluefruitLE_nRF51
+
+
 
