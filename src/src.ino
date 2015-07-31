@@ -158,12 +158,21 @@ void loop(void)
 
   ble.print("AT+BLEUARTTX=");
   lsm.read();
-  ble.println(
-    "Accel X: " + (String)(int)lsm.accelData.x + 
-    " Y: " + (String)(int)lsm.accelData.y + 
-    " Z: " + (String)(int)lsm.accelData.z
-    );
-    ble.println();
+  
+  ble.print("!"); // start data transmission
+  ble.print("A"); // Data type
+  ble.print("0"); // sensor ID
+  ble.print(lsm.accelData.x); //acceleration data X
+  ble.print(lsm.accelData.y); //acceleration data Y
+  ble.print(lsm.accelData.z); //acceleration data Z
+ 
+  ble.println();
+//  ble.println(
+//    "Accel X: " + (String)(int)lsm.accelData.x + 
+//    " Y: " + (String)(int)lsm.accelData.y + 
+//    " Z: " + (String)(int)lsm.accelData.z
+//    );
+//    ble.println();
 //  ble.print("Mag X: "); ble.print((int)lsm.magData.x);     ble.print(" ");
 //  ble.print("Y: "); ble.print((int)lsm.magData.y);         ble.print(" ");
 //  ble.print("Z: "); ble.println((int)lsm.magData.z);       ble.print(" ");
