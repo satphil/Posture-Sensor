@@ -11,14 +11,20 @@ Start CMD    CMD type     Byte 0     Byte 1      Byte 2      Byte 3      Byte 4 
     !            A            0           #           #           #           #
 
 Start Data    Data type    Sensor ID     Byte 0      Byte 1      Byte 2      Byte 3      ……
- (char)        (char)       (int)       (byte)      (byte)      (byte)      (byte)
+ (char)        (char)       (byte)       (byte)      (byte)      (byte)      (byte)
 ```
 ## Data Types
-### Linear Acceleration
-When the data type is A, the following bytes are acceleration in 3 dimensions. There are 12 bytes and they are X,Y and Z as 4 byte floats.
+A= linear acceleration
+G= orientation with respect to gravity (gyrometer)
+M= orientation with respect to magnetic field (magnetometer)
 
-### Orientation with respect to gravity (Gyrometer)
-When the data type is G, the following bytes are orientation in 3 dimensions. There are 12 bytes and they are X,Y and Z as 4 byte floats. 
 
-### Orientation with respect to magnetic field (Magnetometer)
-When the data type is M, the following bytes are orientation in 3 dimensions. There are 12 bytes and they are X,Y and Z as 4 byte floats.
+## Vectors
+The vectors are comprised of 3 strings (made of an unknown number of bytes) that represent 3 dimensions and they are X, Y and Z. The strings are deliniated by an @ symbol. The vectors come after the sensor ID. 
+
+### Example
+!A01234.12@123.34@156.76!A0... 
+X= 1234.12
+Y= 123.34
+Z= 156.76
+
