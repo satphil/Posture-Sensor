@@ -159,14 +159,42 @@ void loop(void)
   ble.print("AT+BLEUARTTX=");
   lsm.read();
   
+//  ble.print("!"); // start data transmission
+//  ble.print("A"); // Data type
+//  ble.print("0"); // sensor ID
+//  ble.print(lsm.accelData.x); //acceleration data X
+//  ble.print(lsm.accelData.y); //acceleration data Y
+//  ble.print(lsm.accelData.z); //acceleration data Z
+  
   ble.print("!"); // start data transmission
-  ble.print("A"); // Data type
-  ble.print("0"); // sensor ID
-  ble.print(lsm.accelData.x); //acceleration data X
-  ble.print(lsm.accelData.y); //acceleration data Y
-  ble.print(lsm.accelData.z); //acceleration data Z
- 
+  ble.print("A"); // data type
+  ble.print("0"); //sensor ID
+  ble.print(lsm.accelData.x); 
+  ble.print("@");
+  ble.print(lsm.accelData.y); 
+  ble.print("@");
+  ble.print(lsm.accelData.z); 
+  
+  ble.print("!"); // start data transmission
+  ble.print("G"); // data type
+  ble.print("0"); //sensor ID
+  ble.print(lsm.gyroData.x); 
+  ble.print("@");
+  ble.print(lsm.gyroData.y); 
+  ble.print("@");
+  ble.print(lsm.gyroData.z); 
+  
+  ble.print("!"); // start data transmission
+  ble.print("M"); // data type
+  ble.print("0"); //sensor ID
+  ble.print(lsm.magData.x); 
+  ble.print("@");
+  ble.print(lsm.magData.y); 
+  ble.print("@");
+  ble.print(lsm.magData.z); 
+  
   ble.println();
+  
 //  ble.println(
 //    "Accel X: " + (String)(int)lsm.accelData.x + 
 //    " Y: " + (String)(int)lsm.accelData.y + 
