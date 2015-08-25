@@ -86,7 +86,7 @@ void setupSensor()
 /**************************************************************************/
 void setup(void)
 {
-  while (!Serial);  // required for Flora & Micro
+//  while (!Serial);  // required for Flora & Micro
   delay(500);
 
   Serial.begin(115200);
