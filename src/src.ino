@@ -135,17 +135,17 @@ void setup(void)
 
   Serial.println(F("*****************"));
   
-  Serial.println("LSM raw read demo");
+  Serial.println(F("LSM raw read demo"));
   
   // Try to initialise and warn if we couldn't detect the chip
   if (!lsm.begin())
   {
-    Serial.println("Oops ... unable to initialize the LSM9DS0. Check your wiring!");
+    Serial.println(F("Oops ... unable to initialize the LSM9DS0. Check your wiring!"));
     while (1);
   }
-  Serial.println("Found LSM9DS0 9DOF");
-  Serial.println("");
-  Serial.println("");
+  Serial.println(F("Found LSM9DS0 9DOF"));
+  Serial.println(F(""));
+  Serial.println(F(""));
   
 }
 
@@ -157,6 +157,7 @@ void setup(void)
 void loop(void)
 {
  //TX Talk to bluetooth
+  Serial.println(F("sending to BLE AT+BLEUARTTX="));
 
   ble.print("AT+BLEUARTTX=");
   lsm.read();
@@ -210,7 +211,18 @@ void loop(void)
 //  ble.print("Y: "); ble.print((int)lsm.gyroData.y);        ble.print(" ");
 //  ble.print("Z: "); ble.println((int)lsm.gyroData.z);      ble.println(" ");
 //  ble.print("Temp: "); ble.print((int)lsm.temperature);    ble.println(" ");
-  ble.waitForOK();
+  //ble.waitForOK();
+  if (! ble.waitForOK() ) {
+     Serial.println(F("waitforOK BAD, delaying 3s"));
+     delay(3000);
+     if (! ble.waitForOK() ) {
+         Serial.println(F("2nd waitforOK BAD"));
+     } else {
+        Serial.println(F("2nd waitForOK OK"));
+     }
+  } else {
+    Serial.println(F("waitForOK OK"));
+  }
   
 //  // Check for user input
 //  char inputs[BUFSIZE+1];
@@ -256,7 +268,7 @@ void loop(void)
 //  strip.show();
 //  
 //  ble.waitForOK();
-  delay(750);
+  delay(1000);
 
 }
 
